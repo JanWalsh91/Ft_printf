@@ -1,0 +1,94 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/29 12:23:52 by jwalsh            #+#    #+#             */
+/*   Updated: 2017/01/04 17:54:40 by jwalsh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+# define UI unsigned int
+# define UC unsigned char
+# include "libft/libft.h"
+# include <wchar.h>
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h> //////////////
+
+/*
+** %[parameter][flags][width][.precision][length]type
+*/
+
+typedef enum	e_length
+{
+	none, hh, h, l, ll, j, z, L
+}				t_length;
+
+typedef struct	s_flags
+{
+	int				hashtag;
+	int				zero;
+	int				minus;
+	int				plus;
+	int				space;
+	int				single_quote;
+	int				i;
+}				t_flags;
+
+typedef struct	s_arg
+{
+	char			*result;
+	int				result_len;
+	int				parameter;
+	t_flags			flags;
+	int				width;
+	int				precision;
+	t_length		length;
+	char			type;
+}				t_arg;
+
+typedef	struct	s_data
+{
+	char			*f; //format string
+	va_list			ap;
+	char			*s; //final string
+	int				length; //length of final string
+	int				indicate_param; //are parameter indicators used?
+
+}				t_data;
+
+int				ft_printf(const char *format, ...);
+
+void			set_data(t_data *d, char *format);
+int				parse_until_arg(t_data *d);
+int				parse_arg(t_data *d);
+int				init_arg(t_arg *arg);
+
+int				parse_parameter(t_data *d, t_arg *arg);
+int				parse_flags(t_data *d, t_arg *arg);
+int				check_percent_sign(t_data *d);
+int				parse_width(t_data *d, t_arg *arg);
+int				parse_precision(t_data *d, t_arg *arg);
+int				parse_length(t_data *d, t_arg *arg);
+int				parse_type(t_data *d, t_arg *arg);
+
+int				check_type(t_data *d, t_arg *arg);
+int				get_char(t_data *d, t_arg *arg);
+int				get_string(t_data *d, t_arg *arg);
+int				get_int(t_data *d, t_arg *arg);
+int				get_unsigned_int(t_data *d, t_arg *arg);
+int				get_address(t_data *d, t_arg *arg);
+
+int				update_result_len(t_arg *arg);
+int				check_precision(t_arg *arg);
+int				check_flags(t_arg *arg);
+int				check_padding(t_arg *arg);
+
+#endif
