@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:15:36 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/05 17:51:59 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/06 17:53:57 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ int	ft_printf(const char * restrict format, ...)
 		if (!parse_until_arg(&d) || !parse_arg(&d))
 		{
 			printf("parse fail\n");
-			return (0);
+			return (-1);
 		}
 	}
-	ft_putstr(d.s);
+	d.byte_count = ft_strlen((char *)d.s);
+	while (*d.s) //temporary until byte_count is properly evaluated
+		write(1, d.s++, 1);
+	//write(1, d.s, d.byte_count);
 	va_end(d.ap);
-	return (0);
+	return (d.byte_count);
 }

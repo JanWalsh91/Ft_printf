@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 13:20:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/04 17:10:02 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/06 16:57:20 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,23 @@ int	check_precision(t_arg *arg)
 
 static int	add_zeros(t_arg *arg, size_t size)
 {
-	char *zeros;
+	UC *zeros;
 
-	if (!(zeros = ft_strnew(size + 1)))
+	if (!(zeros = ft_ustrnew(size + 1)))
 		return (0);
 	ft_memset(zeros, '0', size);
-	arg->result = ft_strjoinfree(zeros, arg->result, 'b');
+	arg->result = ft_ustrjoinfree(zeros, arg->result, 'b');
 	return (1);
 }
 
 static int	remove_chars(t_arg *arg, size_t size)
 {
 	//printf("remove_chars\n");
-	char *new;
+	UC *newstr;
 
-	if (!(new = ft_strnew(size)))
+	if (!(newstr = ft_ustrnew(size)))
 		return (0);
-	new = ft_strncat(new, arg->result, size);
-	arg->result = new;
+	newstr = ft_ustrncat(newstr, arg->result, size);
+	arg->result = newstr;
 	return (1);
 }

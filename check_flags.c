@@ -6,14 +6,15 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 14:11:59 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/04 17:54:36 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/06 16:50:31 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-**
+** Checks for hashtag, space and minus flags and update the result if
+** neceassry.
 */
 
 static int	get_alt_form(t_arg *arg);
@@ -34,11 +35,11 @@ static int	get_alt_form(t_arg *arg)
 	if (ft_strchr("cdinpsu", arg->type))
 		return (1);
 	if (arg->type == 'o')
-		arg->result = ft_strjoinfree("0", arg->result, 'r');
+		arg->result = ft_ustrjoinfree((UC*)"0", arg->result, 'r');
 	if (arg->type == 'x')
-		arg->result = ft_strjoinfree("0x", arg->result, 'r');
+		arg->result = ft_ustrjoinfree((UC*)"0x", arg->result, 'r');
 	if (arg->type == 'X')
-		arg->result = ft_strjoinfree("0X", arg->result, 'r');
+		arg->result = ft_ustrjoinfree((UC*)"0X", arg->result, 'r');
 	//add conditions for floating pt conversions
 
 	return (1);
@@ -47,14 +48,14 @@ static int	get_alt_form(t_arg *arg)
 static int add_space(t_arg *arg)
 {
 	if (ft_strchr("adefgi", arg->type) && arg->result[0] != '-')
-		arg->result = ft_strjoinfree(" ", arg->result, 'r');
+		arg->result = ft_ustrjoinfree((UC*)" ", arg->result, 'r');
 	return (1);
 }
 
 static int add_sign(t_arg *arg)
 {
 	if (ft_strchr("adefgi", arg->type) && arg->result[0] != '-')
-		arg->result = ft_strjoinfree("+", arg->result, 'r');
+		arg->result = ft_ustrjoinfree((UC*)"+", arg->result, 'r');
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:21:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/04 17:29:51 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/06 17:32:32 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		parse_arg(t_data *d)
 		!check_flags(&arg) ||
 		!check_padding(&arg))
 		return (0);
-	d->s = ft_strjoinfree(d->s, arg.result, l) ;
+	d->s = ft_ustrjoinfree(d->s, arg.result, l) ;
 	//printf("update string: %s\n", d->s);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:23:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/04 17:54:40 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/06 17:50:10 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct	s_flags
 
 typedef struct	s_arg
 {
-	char			*result;
+	unsigned char	*result;
 	int				result_len;
 	int				parameter;
 	t_flags			flags;
@@ -58,8 +58,8 @@ typedef	struct	s_data
 {
 	char			*f; //format string
 	va_list			ap;
-	char			*s; //final string
-	int				length; //length of final string
+	unsigned char	*s; //final string
+	int				byte_count; //length of final string
 	int				indicate_param; //are parameter indicators used?
 
 }				t_data;

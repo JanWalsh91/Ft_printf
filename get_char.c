@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 16:04:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/02 15:25:43 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/06 17:19:36 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@
 int		get_char(t_data *d, t_arg *arg)
 {
 	//printf("get_char\n");
-	if (!(arg->result = (char *)malloc(2)))
-		return (0);
 	if (arg->length == l)
 	{
-		arg->result[0] = (wchar_t)va_arg(d->ap, wint_t);
-		arg->result[1] = '\0';
+		arg->result = ft_wctostr((wchar_t)va_arg(d->ap, wint_t));
 	}
 	else if (arg->length == none)
 	{
+		if (!(arg->result = (UC *)malloc(2)))
+			return (0);
 		arg->result[0] = (UC)va_arg(d->ap, int);
 		arg->result[1] = '\0';
 	}

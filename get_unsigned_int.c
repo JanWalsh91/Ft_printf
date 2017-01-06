@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 18:20:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/02 17:11:02 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/06 17:32:20 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		get_unsigned_int(t_data *d, t_arg *arg)
 	arg->type == 'u' ? base = 10: 0;
 	arg->type == 'x' || arg->type == 'X' ? base = 16 : 0;
 	arg->type == 'o' ? base = 8 : 0;
-	arg->result = ft_itoa_base(tmp, base);
-	arg->type == 'x' ? ft_strtolower(arg->result) : 0;
+	arg->result = (UC *)ft_itoa_base(tmp, base);
+	arg->type == 'x' ? ft_strtolower((char *)arg->result) : 0;
 	return (1);
 }
