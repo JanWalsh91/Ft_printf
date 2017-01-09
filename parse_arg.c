@@ -6,25 +6,30 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:21:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/06 17:32:32 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/09 14:09:11 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** 
+** Parses the argument, and updates the final result with the tmp string and
+** the conversion of the argyment.
 */
+
+static int	merge(t_data *d, t_arg *arg);
 
 int		parse_arg(t_data *d)
 {
-	printf("---parse_arg: at char: %c/%i---\n", *d->f, *d->f);
+	//printf("i\n");
+	//printf("---parse_arg: at char: %c/%i---\n", *d->f, *d->f);
 	t_arg	arg;
 
-	if (*d->f == 0 && *d->f != '%')
-		return (1);
-	if (check_percent_sign(d))
-		return (1);
+	arg.result = NULL;
+	if (*d->f == 0)
+		return (merge(d, &arg));
+	//if (check_percent_sign(d, &arg))
+	//	return (merge(d, &arg));
 	else if (!init_arg(&arg) ||
 		//!parse_parameter(d, &arg) ||
 		!parse_flags(d, &arg) ||
@@ -37,7 +42,14 @@ int		parse_arg(t_data *d)
 		!check_flags(&arg) ||
 		!check_padding(&arg))
 		return (0);
-	d->s = ft_ustrjoinfree(d->s, arg.result, l) ;
-	//printf("update string: %s\n", d->s);
+	return (merge(d, &arg));
+}
+
+static int	merge(t_data *d, t_arg *arg)
+{
+	//printf("pre merge strings: \nd->s: %s\ntmp: %s\narg.result: %s\n", d->s,
+	//		d->tmp, arg->result);
+	d->s = ft_ustrsjoin(3, d->s, d->tmp, arg->result);
+	//printf("post merge check: \n%s\n", d->s);
 	return (1);
 }

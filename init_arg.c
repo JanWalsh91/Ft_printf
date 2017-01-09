@@ -6,14 +6,17 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:27:10 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/03 13:14:51 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/08 16:20:28 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+** Sets default values for the arg structure.
+*/
+
 static void		set_default_flags(t_flags *flags);
-//static int		init_type(char **type);
 
 int	init_arg(t_arg *arg)
 {

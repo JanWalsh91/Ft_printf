@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_precision.c                                  :+:      :+:    :+:   */
+/*   get_percent.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/30 13:14:24 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/08 15:09:20 by jwalsh           ###   ########.fr       */
+/*   Created: 2017/01/08 16:34:37 by jwalsh            #+#    #+#             */
+/*   Updated: 2017/01/09 14:08:27 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-** If a comma is found, sets the precision in arg.
-*/
-
-int	parse_precision(t_data *d, t_arg *arg)
+int	get_percent(t_arg *arg)
 {
-	//printf("parse_precision\n");
-
-	// add condiiton for * or *m$
-	// if you do, check if negative.
-	if (!(*d->f == '.'))
-		return (1);
-	++d->f;
-	if (!*d->f)
+	if (!(arg->result = ft_ustrnew(1)))
 		return (0);
-	arg->precision = ft_isdigit(*d->f) ? ft_atoi(d->f): 0;
-	while (*d->f && ft_isdigit(*d->f))
-		++d->f;
-	//printf("precision: %i\n", arg->precision);
+	arg->result[0] = '%';
 	return (1);
 }

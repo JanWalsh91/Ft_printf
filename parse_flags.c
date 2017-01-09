@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:12:56 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/04 17:24:37 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/08 15:09:04 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 int	parse_flags(t_data *d, t_arg *arg)
 {
+	//printf("parse_flags\n");
 	while (*d->f && ft_strchr("#0-+ 'I", *d->f))
 	{
 		*d->f == '#' ? arg->flags.hashtag = 1 : 0;
@@ -31,6 +32,6 @@ int	parse_flags(t_data *d, t_arg *arg)
 		*d->f == ' ' && arg->flags.plus == 0 ? arg->flags.space = 1 : 0;
 		++d->f;
 	}
-	printf("flags: #:%i ':%i i:%i -:%i 0:%i ' ':%i +:%i\n", arg->flags.hashtag, arg->flags.single_quote, arg->flags.i, arg->flags.minus, arg->flags.zero, arg->flags.space, arg->flags.plus);
+	//printf("flags: #:%i ':%i i:%i -:%i 0:%i ' ':%i +:%i\n", arg->flags.hashtag, arg->flags.single_quote, arg->flags.i, arg->flags.minus, arg->flags.zero, arg->flags.space, arg->flags.plus);
 	return (*d->f ? 1 : 0);
 }

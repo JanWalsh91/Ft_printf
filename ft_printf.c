@@ -6,31 +6,45 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:15:36 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/06 17:53:57 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/08 16:29:07 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+** Writes to the standard output according to the format strings and arguments
+** prodvided.
+** Parses the format strings until an argument is found, then parses and
+** converts arguments, joining them to the output string.
+** Returns the number of bytes written or -1 if an error occurs.
+*/
+
+static int	ft_printf_error(t_data d);
+
 int	ft_printf(const char * restrict format, ...)
 {
 	t_data		d;
 
-	printf("input string: %s\n", format);
+	//format ? printf("input string: %s\n", format) : 0;
 	va_start(d.ap, format);
 	set_data(&d, (char *)format);
 	while (d.f && *d.f)
 	{
 		if (!parse_until_arg(&d) || !parse_arg(&d))
-		{
-			printf("parse fail\n");
-			return (-1);
-		}
+			return (ft_printf_error(d));
+		//printf("check\n");
 	}
-	d.byte_count = ft_strlen((char *)d.s);
-	while (*d.s) //temporary until byte_count is properly evaluated
-		write(1, d.s++, 1);
-	//write(1, d.s, d.byte_count);
+	//printf("check1\n");
+	d.s ? d.byte_count = ft_strlen((char *)d.s) : 0;
+	write(1, d.s, d.byte_count);
 	va_end(d.ap);
 	return (d.byte_count);
+}
+
+static int	ft_printf_error(t_data d)
+{
+	d.byte_count = (d.s) ? ft_strlen((char *)d.s) : 0;
+	write(1, d.s, d.byte_count);
+	return (-1);
 }

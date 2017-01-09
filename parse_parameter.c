@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:09:30 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/30 13:37:54 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/08 15:09:13 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 int	parse_parameter(t_data *d, t_arg *arg)
 {
+	//printf("parse_parameter\n");
 	int	i;
 
 	i = 0;

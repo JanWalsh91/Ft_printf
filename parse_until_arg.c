@@ -6,17 +6,23 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:42:24 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/06 17:54:49 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/08 16:20:33 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+** Parses the format string until a percentage character is found or the end of
+** the string is reached.
+** Copies the string in a temporary string which is joined to the result int
+** parse_arg.
+*/
+
 int		parse_until_arg(t_data *d)
 {
-	printf("parse_until_arg: at char: %c/%i\n", *d->f, *d->f);
+	//printf("parse_until_arg: at char: %c/%i\n", *d->f, *d->f);
 	int	i;
-	UC	*tmp;
 
 	i = 0;
 	while (*d->f && *d->f != '%')
@@ -24,11 +30,13 @@ int		parse_until_arg(t_data *d)
 		++d->f;
 		++i;
 	}
-	if (!(tmp = (UC *)malloc(i + 1)))
+	if (!(d->tmp = (UC *)ft_ustrnew(i)))
 		return (0);
-	ft_strncpy((char *)tmp, d->f - i, i);
-	d->s = ft_ustrjoinfree(d->s, tmp, l);
+	ft_ustrncpy((UC *)d->tmp, (UC *)(d->f - i), i);
+	//printf("at: %s  i: %i\n", d->f, i);
+	//printf("tmp: %s, *tmp: %c\n", d->tmp, *d->tmp);
+	//printf("check\n");
+	//ft_putendl("test\n");
 	*d->f ? ++d->f : 0;
-	//printf("udpate string: %s\n", d->s);
 	return (1);
 }

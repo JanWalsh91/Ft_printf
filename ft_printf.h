@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:23:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/06 17:50:10 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/09 14:08:19 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef	struct	s_data
 {
 	char			*f; //format string
 	va_list			ap;
+	unsigned char	*tmp; //tmp string for non arg conversion parts of format
 	unsigned char	*s; //final string
 	int				byte_count; //length of final string
 	int				indicate_param; //are parameter indicators used?
@@ -73,7 +74,7 @@ int				init_arg(t_arg *arg);
 
 int				parse_parameter(t_data *d, t_arg *arg);
 int				parse_flags(t_data *d, t_arg *arg);
-int				check_percent_sign(t_data *d);
+//int				check_percent_sign(t_data *d, t_arg *arg);
 int				parse_width(t_data *d, t_arg *arg);
 int				parse_precision(t_data *d, t_arg *arg);
 int				parse_length(t_data *d, t_arg *arg);
@@ -85,6 +86,8 @@ int				get_string(t_data *d, t_arg *arg);
 int				get_int(t_data *d, t_arg *arg);
 int				get_unsigned_int(t_data *d, t_arg *arg);
 int				get_address(t_data *d, t_arg *arg);
+int				get_percent(t_arg *arg);
+int				set_byte_count(t_data *data, t_arg *arg);
 
 int				update_result_len(t_arg *arg);
 int				check_precision(t_arg *arg);

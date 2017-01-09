@@ -6,13 +6,13 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 19:07:14 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/31 16:18:36 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/09 13:53:33 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	get_address(t_data *d , t_arg *arg)
+int	get_address(t_data *d, t_arg *arg)
 {
 	arg->flags.hashtag = 1;
 	arg->length = l;

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 13:20:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/06 16:57:20 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/09 14:05:34 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static int	remove_chars(t_arg *arg, size_t size);
 
 int	check_precision(t_arg *arg)
 {
-	printf("check_precision: %i\n", arg->precision);
+	//printf("check_precision: %i\n", arg->precision);
 	size_t	length;
 
-	if (arg->precision == -1)
+	if (arg->type == '%' || arg->precision == -1)
 		return (1);
-	length = update_result_len(arg);
+	length = (arg->result) ? ft_strlen((char *)arg->result) : 0;
 	if (ft_strchr("diouxX", arg->type) && (length < (size_t)arg->precision))
 	{
 		if (!(add_zeros(arg, (size_t)arg->precision - length)))
@@ -35,6 +35,8 @@ int	check_precision(t_arg *arg)
 	else if (arg->type == 's' && length > (size_t)arg->precision)
 		remove_chars(arg, (size_t)arg->precision);
 	else if (!ft_strchr("diouxXs", arg->type))
+		return (0);
+	else if (arg->type == 'n' && arg->precision != 0)
 		return (0);
 	return (1);
 }
@@ -52,7 +54,6 @@ static int	add_zeros(t_arg *arg, size_t size)
 
 static int	remove_chars(t_arg *arg, size_t size)
 {
-	//printf("remove_chars\n");
 	UC *newstr;
 
 	if (!(newstr = ft_ustrnew(size)))

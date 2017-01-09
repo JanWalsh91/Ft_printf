@@ -6,21 +6,62 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/29 12:14:54 by jwalsh           ###   ########.fr        #
+#    Updated: 2017/01/09 14:13:05 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 
+SRC = ft_printf.c \
+	  check_flags.c \
+	  check_padding.c \
+	  check_percent_sign.c \
+	  check_precision.c \
+	  check_type.c \
+	  get_address.c \
+	  get_char.c \
+	  get_int.c \
+	  get_percent.c \
+	  get_string.c \
+	  get_unsigned_int.c \
+	  init_arg.c \
+	  parse_arg.c \
+	  parse_flags.c \
+	  parse_length.c \
+	  parse_parameter.c \
+	  parse_precision.c \
+	  parse_type.c \
+	  parse_until_arg.c \
+	  parse_width.c \
+	  set.c \
+	  set_byte_count.c
+
+LIB_SRC = ft_atoi.c \
+		  ft_isdigit.c \
+		  ft_itoa_base.c \
+		  ft_memset.c \
+		  ft_strchr.c \
+		  ft_strlen.c \
+		  ft_strtolower.c \
+		  ft_tolower.c \
+		  ft_ustrjoinfree.c \
+		  ft_ustrncpy.c \
+		  ft_ustrnew.c \
+		  ft_ustrsjoin.c \
+		  ft_wctostr.c
 
 NAME = libftprintf.a
 
-HEAD = libftprintf.h
+HEAD = ft_printf.h
 
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
 OBJ = $(SRC:.c=.o)
+
+INC = Libft/
+
+LIB_OBJ = $(LIB_SRC:.c=-.o)
+LIB_OBJ = $(addprefix Libft/, *.o)
 
 ECHO = echo
 
@@ -38,19 +79,21 @@ C_GRAY = \033[37m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar rc $(NAME) $(OBJ)
+	@make -C Libft/
+	@ar rc $(NAME) $(OBJ) $(LIB_OBJ)
 	@ranlib $(NAME)
 	@$(ECHO) "$(C_CYAN)Libftprintf compilation done.$(C_NONE)"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ -I ./$(HEAD)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I ./libft.h
 
 clean:
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) -I$(INC) $(LIB_OBJ)
 	@$(ECHO) "$(C_CYAN)Libftprintf clean done.$(C_NONE)"
 
 fclean: clean
-	@rm -f $(NAME)
+	@make fclean -C ./Libft/
+	@rm -f $(NAME) 
 	@$(ECHO) "$(C_CYAN)Libftprintf fclean done.$(C_NONE)"
 
 re: fclean
