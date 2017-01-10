@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 14:16:29 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 16:08:50 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,21 @@
 #define TEST14 "null:%s\n", NULL
 #define TEST15 "@moulitest: %s", NULL
 #define TEST16 "%.2c", NULL
-#define TEST17 "% d", 42
-#define TEST18 "%5d", -42
-#define TEST19
+#define TEST17 "% d", -42
+#define TEST18 "%d", 42
+#define TEST19 "%c", NULL
+#define TEST20 "%2c", 0
+#define TEST21 "%d", 2147483648
+#define TEST22 "%lld", -9223372036854775808
+#define TEST23 "%U", "4294967295"
+#define TEST24 "%jx", 4294967295
+#define TEST25 "@moulitest: %.d %.0d", 42, 43
+#define TEST26
+#define TEST27
+#define TEST28
+#define TEST29
 
-#define TEST TEST15 
+#define TEST TEST25
 
 int	main(void)
 {
@@ -41,7 +51,7 @@ int	main(void)
 
 	y = 1123509;
 	i = 10;
-	printf(":(ft_printf) return value:%i\n", ft_printf(TEST));
 	printf(":(printf)    return value:%i\n", printf(TEST));
+	printf(":(ft_printf) return value:%i\n", ft_printf(TEST));
 	return (0);
 }

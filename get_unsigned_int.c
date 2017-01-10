@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 18:20:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/09 16:23:18 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 16:03:47 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int		get_unsigned_int(t_data *d, t_arg *arg)
 {
-	unsigned long	tmp;
+	uintmax_t		tmp;
 	int				base;
 
 	if (arg->length == hh)
@@ -32,7 +32,7 @@ int		get_unsigned_int(t_data *d, t_arg *arg)
 	else if (arg->length == ll)
 		tmp = (unsigned long long)va_arg(d->ap, unsigned long long);
 	else if (arg->length == j)
-		tmp = (intmax_t)va_arg(d->ap, intmax_t);
+		tmp = (uintmax_t)va_arg(d->ap, uintmax_t);
 	else
 		return (0);
 	arg->type == 'u' ? base = 10: 0;

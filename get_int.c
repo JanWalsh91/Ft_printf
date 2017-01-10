@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 16:27:01 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 13:24:24 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 15:46:17 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		get_int(t_data *d, t_arg *arg)
 	else if (arg->length == h)
 		arg->result = (UC *)ft_itoa_base((short)va_arg(d->ap, int), 10);
 	else if (arg->length == none)
-		arg->result = (UC *)ft_itoa_base((int)va_arg(d->ap, int), 10);
+		arg->result = (UC *)ft_itoa_base((int)va_arg(d->ap, long), 10);
 	else if (arg->length == l || arg->length == z)
 		arg->result = (UC *)ft_itoa_base((long)va_arg(d->ap, long), 10);
 	else if (arg->length == ll)
@@ -46,7 +46,7 @@ static int	remove_sign(t_arg *arg)
 	tmp = NULL;
 	tmp = arg->result;
 	arg->result = ft_ustrdup(arg->result + 1);
-	free(tmp);
+	//tmp ? free(tmp) : 0;
 	arg->neg_int = 1;
 	return (1);
 }

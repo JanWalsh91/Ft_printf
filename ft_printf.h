@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:23:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 13:43:55 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 15:33:02 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct	s_arg
 	t_length		length;
 	char			type;
 	int				neg_int;
+	int				null_char;
 }				t_arg;
 
 typedef	struct	s_data

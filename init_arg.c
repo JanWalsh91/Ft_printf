@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:27:10 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 10:51:30 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 15:24:11 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	init_arg(t_arg *arg)
 	arg->length = 0;
 	arg->type = 0;
 	arg->neg_int = 0;
+	arg->null_char = 0;
 	return (1);
 }
 

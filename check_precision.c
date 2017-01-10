@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 13:20:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 12:01:11 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 16:10:54 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	check_precision(t_arg *arg)
 	//printf("check_precision: %i\n", arg->precision);
 	size_t	length;
 
-	if (arg->type == '%' || arg->precision == -1)
+	if (ft_strchr("cC%", arg->type) || arg->precision == -1)
 		return (1);
-	if (!arg->precision)
+	if (!arg->precision && !ft_strchr("diouxX", arg->type))
 	{
 		free(arg->result);
 		arg->result = NULL;

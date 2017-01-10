@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:21:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 13:46:13 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 14:45:37 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		parse_arg(t_data *d)
 		!parse_type(d, &arg) ||
 		!check_type(d, &arg) ||
 		!check_precision(&arg) ||
-		!check_flags3(&arg))
+		!check_flags(&arg))
 		//!check_flags(&arg) ||
 		//!check_padding(&arg) ||
 		//!check_flags2(&arg))
