@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 14:11:59 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/09 14:06:10 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 13:40:54 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 static int	get_alt_form(t_arg *arg);
 static int	add_space(t_arg *arg);
-static int	add_sign(t_arg *arg);
+//static int	add_sign(t_arg *arg);
 static int	add_commas(t_arg *arg);
 
 int	check_flags(t_arg *arg)
@@ -32,13 +32,13 @@ int	check_flags(t_arg *arg)
 	(arg->flags.single_quote) ? add_commas(arg) : 0;
 	(arg->flags.hashtag) ? get_alt_form(arg) : 0;
 	(arg->flags.space) ? add_space(arg) : 0;
-	(arg->flags.plus) ? add_sign(arg) : 0;
+	//(arg->flags.plus) ? add_sign(arg) : 0;
 	return (1);
 }
 
 static int	get_alt_form(t_arg *arg)
 {
-	if (ft_strchr("cdinpsu", arg->type))
+	if (ft_strchr("cdinpsu", arg->type) || arg->flags.zero)
 		return (1);
 	if (arg->type == 'o')
 		arg->result = ft_ustrjoinfree((UC*)"0", arg->result, 'r');
@@ -58,12 +58,14 @@ static int	add_space(t_arg *arg)
 	return (1);
 }
 
+/*
 static int	add_sign(t_arg *arg)
 {
 	if (ft_strchr("adefgi", arg->type) && arg->result[0] != '-')
 		arg->result = ft_ustrjoinfree((UC*)"+", arg->result, 'r');
 	return (1);
 }
+*/
 
 static int	add_commas(t_arg *arg)
 {

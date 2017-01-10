@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:15:36 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/08 16:29:07 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 14:10:33 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ft_printf(const char * restrict format, ...)
 	}
 	//printf("check1\n");
 	d.s ? d.byte_count = ft_strlen((char *)d.s) : 0;
+	d.byte_count += d.null_char;
 	write(1, d.s, d.byte_count);
 	va_end(d.ap);
 	return (d.byte_count);
@@ -45,6 +46,7 @@ int	ft_printf(const char * restrict format, ...)
 static int	ft_printf_error(t_data d)
 {
 	d.byte_count = (d.s) ? ft_strlen((char *)d.s) : 0;
+	d.byte_count += d.null_char;
 	write(1, d.s, d.byte_count);
 	return (-1);
 }

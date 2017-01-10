@@ -6,12 +6,14 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2017/01/09 14:13:05 by jwalsh           ###   ########.fr        #
+#    Updated: 2017/01/10 13:44:07 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = ft_printf.c \
 	  check_flags.c \
+	  check_flags2.c \
+	  check_flags3.c \
 	  check_padding.c \
 	  check_percent_sign.c \
 	  check_precision.c \

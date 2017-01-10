@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:04:30 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/07 15:38:16 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 10:39:20 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	set_data(t_data *d, char *format)
 	d->f = format;
 	d->s = NULL;
 	d->byte_count = 0;
+	d->null_char = 0;
 }

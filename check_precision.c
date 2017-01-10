@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 13:20:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/09 14:05:34 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 12:01:11 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ int	check_precision(t_arg *arg)
 
 	if (arg->type == '%' || arg->precision == -1)
 		return (1);
+	if (!arg->precision)
+	{
+		free(arg->result);
+		arg->result = NULL;
+		return (1);
+	}
 	length = (arg->result) ? ft_strlen((char *)arg->result) : 0;
 	if (ft_strchr("diouxX", arg->type) && (length < (size_t)arg->precision))
 	{
@@ -59,6 +65,7 @@ static int	remove_chars(t_arg *arg, size_t size)
 	if (!(newstr = ft_ustrnew(size)))
 		return (0);
 	newstr = ft_ustrncat(newstr, arg->result, size);
+	free(arg->result);
 	arg->result = newstr;
 	return (1);
 }

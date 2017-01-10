@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:23:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/09 14:08:19 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/10 13:43:55 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define UI unsigned int
 # define UC unsigned char
+# define LL long long
 # include "libft/libft.h"
 # include <wchar.h>
 # include <stdarg.h>
@@ -52,6 +53,7 @@ typedef struct	s_arg
 	int				precision;
 	t_length		length;
 	char			type;
+	int				neg_int;
 }				t_arg;
 
 typedef	struct	s_data
@@ -62,6 +64,7 @@ typedef	struct	s_data
 	unsigned char	*s; //final string
 	int				byte_count; //length of final string
 	int				indicate_param; //are parameter indicators used?
+	int				null_char;
 
 }				t_data;
 
@@ -93,5 +96,7 @@ int				update_result_len(t_arg *arg);
 int				check_precision(t_arg *arg);
 int				check_flags(t_arg *arg);
 int				check_padding(t_arg *arg);
+int				check_flags2(t_arg *arg);
+int				check_flags3(t_arg *arg);
 
 #endif

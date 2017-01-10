@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 18:20:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/09 14:46:09 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/09 16:23:18 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int		get_unsigned_int(t_data *d, t_arg *arg)
 	arg->type == 'o' ? base = 8 : 0;
 	arg->result = (UC *)ft_uitoa_base(tmp, base);
 	arg->type == 'x' ? ft_strtolower((char *)arg->result) : 0;
+	arg->result[0] == '0' && (!ft_strchr("oO", arg->type)) ?
+		arg->flags.hashtag = 0 : 0;
 	return (1);
 }
