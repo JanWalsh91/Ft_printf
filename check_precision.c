@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 13:20:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 16:10:54 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/11 16:47:08 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static int	remove_chars(t_arg *arg, size_t size);
 
 int	check_precision(t_arg *arg)
 {
-	//printf("check_precision: %i\n", arg->precision);
 	size_t	length;
 
-	if (ft_strchr("cC%", arg->type) || arg->precision == -1)
+	//printf("check_precision\n");
+	if (!arg->type || ft_strchr("cC%", arg->type) || arg->precision == -1)
 		return (1);
-	if (!arg->precision && !ft_strchr("diouxX", arg->type))
+	if (!arg->precision && !ft_strcmp((char *)arg->result, "0"))
 	{
 		free(arg->result);
 		arg->result = NULL;
@@ -38,7 +38,7 @@ int	check_precision(t_arg *arg)
 		if (!(add_zeros(arg, (size_t)arg->precision - length)))
 			return (0);
 	}
-	else if (arg->type == 's' && length > (size_t)arg->precision)
+	if (arg->type == 's' && length > (size_t)arg->precision)
 		remove_chars(arg, (size_t)arg->precision);
 	else if (!ft_strchr("diouxXs", arg->type))
 		return (0);

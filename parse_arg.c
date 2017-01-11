@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:21:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 14:45:37 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/11 16:46:55 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ int		parse_arg(t_data *d)
 	arg.result = NULL;
 	if (*d->f == 0)
 		return (merge(d, &arg));
-	//if (check_percent_sign(d, &arg))
-	//	return (merge(d, &arg));
 	else if (!init_arg(&arg) ||
-		//!parse_parameter(d, &arg) ||
 		!parse_flags(d, &arg) ||
 		!parse_width(d, &arg) ||
 		!parse_precision(d, &arg) ||
@@ -40,16 +37,13 @@ int		parse_arg(t_data *d)
 		!check_type(d, &arg) ||
 		!check_precision(&arg) ||
 		!check_flags(&arg))
-		//!check_flags(&arg) ||
-		//!check_padding(&arg) ||
-		//!check_flags2(&arg))
 		return (0);
 	return (merge(d, &arg));
 }
 
 static int	merge(t_data *d, t_arg *arg)
 {
-	//printf("pre merge strings: \nd->s: %s\ntmp: %s\narg.result: %s\n", d->s,
+	//printf("pre merge strings: \nd->s: %s\ntmp: %s\narg->result: %s\n", d->s,
 	//		d->tmp, arg->result);
 	d->s = ft_ustrsjoin(3, d->s, d->tmp, arg->result);
 	//printf("post merge check: \n%s\n", d->s);

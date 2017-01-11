@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 10:56:20 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/09 14:06:57 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/11 12:02:42 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 int	check_percent_sign(t_data *d, t_arg *arg)
 {
-	//printf("check_percent_sign. string: %s\n", d->s);
 	if (*d->f != '%')
 		return (0);
 	arg->result = ft_ustrjoinfree(arg->result, (UC*)"%", l);

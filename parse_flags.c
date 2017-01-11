@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:12:56 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 11:59:29 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/11 12:25:05 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ int	parse_flags(t_data *d, t_arg *arg)
 		++d->f;
 	}
 	//printf("flags: #:%i ':%i i:%i -:%i 0:%i ' ':%i +:%i\n", arg->flags.hashtag, arg->flags.single_quote, arg->flags.i, arg->flags.minus, arg->flags.zero, arg->flags.space, arg->flags.plus);
-	return (*d->f ? 1 : 0);
+	if (*d->f)
+		return (1);
+	return (0);
 }

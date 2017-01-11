@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:44:59 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 15:33:25 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/11 16:47:17 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ int			check_flags(t_arg *arg)
 	UC	*prefix;
 	UC	*padding;
 
+	//printf("check_flags. result: %i\n", *arg->result);
+	if (!arg->type)
+		return (1);
 	if (arg->width && arg->type == 'n')
 		return (0);
 	arg->flags.single_quote ? add_commas(arg) : 0;
@@ -32,7 +35,6 @@ int			check_flags(t_arg *arg)
 		arg->result = ft_ustrsjoinfree(3, prefix, padding, arg->result);
 	else if (!arg->flags.zero)
 		arg->result = ft_ustrsjoinfree(3, padding, prefix, arg->result);
-	//printf("check_flags result: %s\n", arg->result);
 	return (1);
 }
 
@@ -97,5 +99,3 @@ static int	add_commas(t_arg *arg)
 	arg->result = result;
 	return (1);
 }
-
-

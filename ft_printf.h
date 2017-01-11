@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:23:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 15:33:02 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/11 15:07:43 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h> //////////////
+//# include <stdio.h> //////////////
 
 /*
 ** %[parameter][flags][width][.precision][length]type

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 16:04:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 15:45:46 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/11 15:39:35 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int		get_char(t_data *d, t_arg *arg)
 			return (0);
 		arg->result[0] = (UC)va_arg(d->ap, int);
 		(*arg->result) ? arg->result[1] = '\0' : 0;
-		(!arg->result[0]) ? ++d->null_char : 0;
-		(!arg->result[0]) ? ++arg->null_char : 0;
 	}
 	else
 		return (0);
+	(!arg->result[0]) ? ++d->null_char : 0;
+	(!arg->result[0]) ? ++arg->null_char : 0;
 	return (1);
 }

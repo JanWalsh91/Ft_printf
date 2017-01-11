@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 15:59:58 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 15:33:36 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/11 16:46:46 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	check_type(t_data *d, t_arg *arg)
 {
+	//printf("check type: %c\n", arg->type);
 	if (arg->type == 'd' || arg->type == 'i')
 		get_int(d, arg);
 	else if (ft_strchr("ouxX", arg->type))
@@ -28,6 +29,11 @@ int	check_type(t_data *d, t_arg *arg)
 		return (0);
 	else if (arg->type == '%' && !get_percent(arg))
 		return (0);
-	//arg->result ? printf("result: %s\n", arg->result) : 0;
+//	else
+	//{
+	//	printf("check\n");
+	//	arg->result = (UC *)ft_strdup("\0");
+	//}
+	//printf("check_type: result: %c\n", *arg->result);
 	return (1);
 }
