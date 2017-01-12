@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 13:36:01 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 15:39:23 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@
 #define TEST52 "tests: %hhC, %hhC", 0, L'米'
 #define TEST53 "%hhS, %hhS", 0, L"米米"
 #define TEST54 "%S", s
-#define TEST55
-#define TEST56
+#define TEST55 "%S", L"米米"
+#define TEST56 "%S", L"Τ τ"
 #define TEST57
 #define TEST58
 #define TEST59
 
-#define TEST TEST52
+#define TEST TEST38
 
 int	main(void)
 {
@@ -77,7 +77,7 @@ int	main(void)
 	y = 1123509;
 	i = 10;
 	//printf("USHRTMAX: %O\n", USHRT_MAX);
-	//printf(":(printf)    return value:%i\n", printf(TEST));
+	printf(":(printf)    return value:%i\n", printf(TEST));
 	printf(":(ft_printf) return value:%i\n", ft_printf(TEST));
 	//printf(":(printf)    return value:%i", printf(TEST));
 	//printf(":(ft_printf) return value:%i", ft_printf(TEST));

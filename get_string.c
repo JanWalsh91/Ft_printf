@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 18:52:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/11 17:49:14 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 15:39:41 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ int		get_string(t_data *d, t_arg *arg)
 		while (tmp && *tmp)
 			arg->result = ft_ustrjoinfree(arg->result, ft_wctostr(*(tmp++)), 'l');
 	}
-	//printf("GOT STRING: %s\n", arg->result);
 	return ((arg->length == none || arg->length == l) ? 1 : 0);
 }
