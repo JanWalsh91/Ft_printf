@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 16:07:08 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 16:14:23 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,21 @@
 #define TEST55 "%S", L"米米"
 #define TEST56 "%S", L"Τ τ"
 #define TEST57 "%C", L'ي'
-#define TEST58
+#define TEST58 "{%3c}", 0
 #define TEST59
+#define TEST60
+#define TEST61
+#define TEST62
+#define TEST63
+#define TEST64
+#define TEST65
+#define TEST66
+#define TEST67
+#define TEST68
+#define TEST69
+#define TEST70
 
-#define TEST TEST52
+#define TEST TEST58
 
 int	main(void)
 {
@@ -77,8 +88,8 @@ int	main(void)
 	y = 1123509;
 	i = 10;
 	//printf("USHRTMAX: %O\n", USHRT_MAX);
-	//printf(":(printf)    return value:%i\n", printf(TEST));
-	printf(":(ft_printf) return value:%i\n", ft_printf(TEST));
+	printf(":(printf)    return value:%i\n", printf(TEST));
+	//printf(":(ft_printf) return value:%i\n", ft_printf(TEST));
 	//printf(":(printf)    return value:%i", printf(TEST));
 	//printf(":(ft_printf) return value:%i", ft_printf(TEST));
 	return (0);
