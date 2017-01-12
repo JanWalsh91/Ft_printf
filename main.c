@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 16:57:11 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 18:57:14 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@
 #define TEST58 "{%3c}", 0
 #define TEST59 "{%2R}"
 #define TEST60 "{%-15ZZ}", 123
-#define TEST61
-#define TEST62
-#define TEST63
-#define TEST64
+#define TEST61 "%#o", 0
+#define TEST62 "%#.O", 0
+#define TEST63 "%.o, %.0o", 0, 0 
+#define TEST64 "o: %#.o x: %#.0x", 0, 0
 #define TEST65
 #define TEST66
 #define TEST67
@@ -76,7 +76,7 @@
 #define TEST69
 #define TEST70
 
-#define TEST TEST60
+#define TEST TEST61
 
 int	main(void)
 {

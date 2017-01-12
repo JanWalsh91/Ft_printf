@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 18:20:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 13:10:39 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 18:57:18 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int		get_unsigned_int(t_data *d, t_arg *arg)
 	arg->type == 'o' ? base = 8 : 0;
 	arg->result = (UC *)ft_uitoa_base(tmp, base);
 	ft_strchr("xp", arg->type) ? ft_strtolower((char *)arg->result) : 0;
-	arg->type != 'p' && arg->result[0] == '0' && (!ft_strchr("oO", arg->type)) ?
-		arg->flags.hashtag = 0 : 0;
+	arg->type != 'p' && arg->result[0] == '0' && arg->type != 'o' ? arg->flags.hashtag = 0 : 0;
+	arg->result[0] == '0' && arg->type == 'o' ? arg->flags.hashtag = 0 : 0;
 	arg->type == 'p' ? arg->type = 'x' : 0;
 	//printf("arg result: %s, hashtag: %i\n", arg->result, arg->flags.hashtag);
 	return (1);

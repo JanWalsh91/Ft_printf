@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:15:39 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 16:44:53 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 18:37:33 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ int	parse_type(t_data *d, t_arg *arg)
 	else 
 	{
 		//printf("no arg type\n");
+		arg->result = ft_ustrnew(2);
+		arg->result[0] = *d->f;
 		arg->type = 0;
-		arg->result = (UC *)ft_strdup("\0");;
+		//arg->result = (UC *)ft_strdup("\0");
 	}
 	//else
 	//	return (0);
-	//printf("parse type: result: %s\n", arg->result);
-	arg->type ? ++d->f : 0;
+	//printf("parse type: %i, result: %s\n", arg->type, arg->result);
+	++d->f;
 	return (1);
 }
