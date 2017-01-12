@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:15:39 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/11 16:36:15 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 13:21:02 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,24 @@ int	parse_type(t_data *d, t_arg *arg)
 		arg->flags.zero = 0 : 0;
 	if (ft_strchr("diuoxXcspn%", *d->f))
 		arg->type = *d->f;
-	else if (ft_strchr("DOUCS", *d->f))
+	else if (ft_strchr("DOUSC", *d->f))
 	{
-		arg->length = l;
+		arg->length == hh ? arg->length = h : 0;
+		arg->length == h ? arg->length = none : 0;
+		arg->length == none ? arg->length = l : 0;
+		arg->length == l ? arg->length = ll : 0;
+		arg->length == ll ? arg->length = ll : 0;
+		ft_strchr("CS",*d->f) ? arg->length = l : 0;
 		arg->type = (ft_tolower(*d->f));
 	}
 	else
-	//{
-//		printf("found no type\n");
-//		arg->result = NULL;
-//	}
-		return (0);
-	//printf("got type: %i\n", arg->type);
-	++d->f;
+	{
+		arg->type = 0;
+		arg->result = (UC *)ft_strdup("\0");;
+	}
+	//else
+	//	return (0);
+	//printf("parse type: result: %s\n", arg->result);
+	arg->type ? ++d->f : 0;
 	return (1);
 }

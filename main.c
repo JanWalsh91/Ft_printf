@@ -6,12 +6,14 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/11 16:50:10 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 13:36:01 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <locale.h>
+#include <limits.h>
+
 #define TEST0 "alkdsii , %010d, %X, %%, %x, %o,123 %C, %s\n", 67, i, i, i, 0x20AD, "abc"
 #define TEST1 "1111111111111%C8888", 0x20AD
 #define TEST3 "simple test:%i\n", 90
@@ -40,29 +42,42 @@
 #define TEST26 "%hU", 4294967296
 #define TEST27 "%p", NULL
 #define TEST28 "%#o", 0
-#define TEST29 "{%i, % -l.9}iiiii%s", 90, "hoh"
+#define TEST29 "{%i, % -.9}iiiii", 90
 #define TEST30 "%C", L'猫'
 #define TEST31 "%C", L'δ'
 #define TEST32 "%C", L'요'
 #define TEST33 "%C", L'莨'
 #define TEST34 "%C", L'ي'
 #define TEST35 "%C", 0
-#define TEST36 "@moulitest: %#.o %#.0o", 9, 0
-#define TEST37
-#define TEST38
-#define TEST39
-#define TEST40
+#define TEST36 "{%}"
+#define TEST37 "% Zooo"
+#define TEST38 "%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S", L"Α α", L"Β β", L"Γ γ", L"Δ δ", L"Ε ε", L"Ζ ζ", L"Η η", L"Θ θ", L"Ι ι", L"Κ κ", L"Λ λ", L"Μ μ", L"Ν ν", L"Ξ ξ", L"Ο ο", L"Π π", L"Ρ ρ", L"Σ σ", L"Τ τ", L"Υ υ", L"Φ φ", L"Χ χ", L"Ψ ψ", L"Ω ω", L""
+#define TEST39 "%S", NULL
+#define TEST40 "%C ll%c", 0, 'a'
+#define TEST50 "%llU, %llU", 0, USHRT_MAX
+#define TEST51 "%hhO, %hhO", 0, USHRT_MAX
+#define TEST52 "tests: %hhC, %hhC", 0, L'米'
+#define TEST53 "%hhS, %hhS", 0, L"米米"
+#define TEST54 "%S", s
+#define TEST55
+#define TEST56
+#define TEST57
+#define TEST58
+#define TEST59
 
-#define TEST TEST36
+#define TEST TEST52
 
 int	main(void)
 {
 	int		i, y;
 	setlocale(LC_ALL, "");
 
+	char *s= (char *)strdup("1234567890");
+	s[5] = 0;
 	y = 1123509;
 	i = 10;
-	printf(":(printf)    return value:%i\n", printf(TEST));
+	//printf("USHRTMAX: %O\n", USHRT_MAX);
+	//printf(":(printf)    return value:%i\n", printf(TEST));
 	printf(":(ft_printf) return value:%i\n", ft_printf(TEST));
 	//printf(":(printf)    return value:%i", printf(TEST));
 	//printf(":(ft_printf) return value:%i", ft_printf(TEST));
