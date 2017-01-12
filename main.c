@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 15:39:23 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 15:54:36 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@
 #define TEST54 "%S", s
 #define TEST55 "%S", L"米米"
 #define TEST56 "%S", L"Τ τ"
-#define TEST57
+#define TEST57 "%C", L'ي'
 #define TEST58
 #define TEST59
 
-#define TEST TEST38
+#define TEST TEST52
 
 int	main(void)
 {
