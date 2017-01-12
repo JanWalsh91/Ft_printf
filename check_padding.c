@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 16:23:43 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/11 16:47:00 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 16:05:55 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_padding(t_arg *arg)
 	arg->flags.zero == 1 ? padding = '0' : 0;
 	if (arg->width && arg->type == 'n')
 		return (0);
-	arg->result_len = (arg->result) ? ft_strlen((char *)arg->result) : 0;
+	arg->result_len = (arg->result) ? ft_ustrlen(arg->result) : 0;
 	if (arg->width > arg->result_len)
 	{
 		if (!(tmp = get_padding(arg, padding)))

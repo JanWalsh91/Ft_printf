@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:44:59 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 15:03:14 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 16:05:45 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int			check_flags(t_arg *arg)
 		return (0);
 	arg->flags.single_quote ? add_commas(arg) : 0;
 	get_prefix(arg, &prefix);
-	get_padding(arg, &padding, prefix ? ft_strlen((char *)prefix) : 0);
+	get_padding(arg, &padding, prefix ? ft_ustrlen(prefix) : 0);
 	if (arg->flags.minus)
 		arg->result = ft_ustrsjoinfree(3, prefix, arg->result, padding);
 	else if (arg->flags.zero)
@@ -60,7 +60,7 @@ static int	get_padding(t_arg *arg, UC **padding, size_t prefix_len)
 {
 	int	length;
 
-	arg->result_len = (arg->result) ? ft_strlen((char *)arg->result) : 0;
+	arg->result_len = (arg->result) ? ft_ustrlen(arg->result) : 0;
 	*padding = NULL;
 	length = arg->width - arg->result_len - prefix_len - arg->null_char;
 	if (length > 0)
