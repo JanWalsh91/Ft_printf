@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:15:39 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 15:10:17 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 16:44:53 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ int	parse_type(t_data *d, t_arg *arg)
 		ft_strchr("CS",*d->f) ? arg->length = l : 0;
 		arg->type = (ft_tolower(*d->f));
 	}
-	else
+	else 
 	{
+		//printf("no arg type\n");
 		arg->type = 0;
 		arg->result = (UC *)ft_strdup("\0");;
 	}

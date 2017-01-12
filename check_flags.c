@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:44:59 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 16:29:23 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 16:47:06 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int			check_flags(t_arg *arg)
 	UC	*prefix;
 	UC	*padding;
 
-	//printf("check_flags. result: %i\n", *arg->result);
-	if (!arg->type)
-		return (1);
+	//printf("check_flags. result: %s\n", arg->result);
+	//if (!arg->type)
+	//	return (1);
 	if (arg->width && arg->type == 'n')
 		return (0);
 	arg->flags.single_quote ? add_commas(arg) : 0;
@@ -47,7 +47,7 @@ static int	get_prefix(t_arg *arg, UC **prefix)
 		(arg->type == 'x') ? *prefix = ft_ustrdup((UC *)"0x") : 0;
 		(arg->type == 'X') ? *prefix = ft_ustrdup((UC *)"0X") : 0;
 	}
-	if (ft_strchr("adefgi", arg->type))
+	if (arg->type && ft_strchr("adefgi", arg->type))
 	{
 		arg->neg_int ? *prefix = ft_ustrdup((UC *)"-") : 0;
 		arg->flags.plus && !arg->neg_int ? *prefix = ft_ustrdup((UC *)"+") : 0;
@@ -63,6 +63,7 @@ static int	get_padding(t_arg *arg, UC **padding, size_t prefix_len)
 	arg->result_len = (arg->result) ? ft_ustrlen(arg->result) : 0;
 	*padding = NULL;
 	length = arg->width - arg->result_len - prefix_len; //- arg->null_char;
+	!arg->type ? --length : 0;
 	if (length > 0)
 	{
 		*padding = ft_ustrnew(length);
