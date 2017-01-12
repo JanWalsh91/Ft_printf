@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:44:59 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 16:05:45 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/12 16:29:23 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,13 @@ static int	get_padding(t_arg *arg, UC **padding, size_t prefix_len)
 
 	arg->result_len = (arg->result) ? ft_ustrlen(arg->result) : 0;
 	*padding = NULL;
-	length = arg->width - arg->result_len - prefix_len - arg->null_char;
+	length = arg->width - arg->result_len - prefix_len; //- arg->null_char;
 	if (length > 0)
 	{
 		*padding = ft_ustrnew(length);
 		*padding = ft_memset(*padding, arg->flags.zero ? '0' : ' ', length);
 	}
+	//printf("got padding: %s\n", *padding);
 	return (1);
 }
 
