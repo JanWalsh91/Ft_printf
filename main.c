@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 14:35:08 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/13 15:53:20 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@
 #define TEST66 "%.4S", L"我是一只猫。"
 #define TEST67 "%10S", L"我"
 #define TEST68 "{%05.c}", 'o'
-#define TEST69
+#define TEST69 "%.0%"
 #define TEST70
 
-#define TEST TEST57
+#define TEST TEST69
 
 int	main(void)
 {

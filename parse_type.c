@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:15:39 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 12:46:52 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/13 16:03:41 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@
 
 int	parse_type(t_data *d, t_arg *arg)
 {
-	(ft_strchr("dDiIoOuUxX", arg->type) && arg->precision >= 0) ?
-		arg->flags.zero = 0 : 0;
-	if (ft_strchr("diuoxXcspn%", *d->f))
+	if (*d->f && ft_strchr("diuoxXcspn%", *d->f))
 		arg->type = *d->f;
-	else if (ft_strchr("DOUSC", *d->f))
+	else if (*d->f && ft_strchr("DOUSC", *d->f))
 	{
 		arg->length == hh ? arg->length = h : 0;
 		arg->length == h ? arg->length = none : 0;
@@ -40,6 +38,8 @@ int	parse_type(t_data *d, t_arg *arg)
 		arg->type = 0;
 		//arg->result = (UC *)ft_strdup("\0");
 	}
+	if ((ft_strchr("diouxXb", arg->type) && arg->precision >= 0))
+		arg->flags.zero = 0;
 	//printf("parse type: %i, result: %s\n", arg->type, arg->result);
 	++d->f;
 	return (1);
