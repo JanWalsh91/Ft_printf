@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:44:59 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 18:57:16 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/13 13:49:02 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	get_prefix(t_arg *arg, UC **prefix)
 	*prefix = NULL;
 	if (arg->type && arg->flags.hashtag)
 	{
-		(arg->type == 'o') ? *prefix = ft_ustrdup((UC *)"0") : 0;
+		(arg->type == 'o' && ft_strcmp((char *)arg->result, "0")) ? *prefix = ft_ustrdup((UC *)"0") : 0;
 		(arg->type == 'x') ? *prefix = ft_ustrdup((UC *)"0x") : 0;
 		(arg->type == 'X') ? *prefix = ft_ustrdup((UC *)"0X") : 0;
 	}

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 18:57:14 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/13 14:35:08 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,16 @@
 #define TEST60 "{%-15ZZ}", 123
 #define TEST61 "%#o", 0
 #define TEST62 "%#.O", 0
-#define TEST63 "%.o, %.0o", 0, 0 
-#define TEST64 "o: %#.o x: %#.0x", 0, 0
-#define TEST65
-#define TEST66
-#define TEST67
-#define TEST68
+#define TEST63 "%.o, %0.o", 0, 0 
+#define TEST64 "#o: %#o #.o: %#.0o o: %o o.: %.0o", 0, 0, 0, 0
+#define TEST65 "%0"
+#define TEST66 "%.4S", L"我是一只猫。"
+#define TEST67 "%10S", L"我"
+#define TEST68 "{%05.c}", 'o'
 #define TEST69
 #define TEST70
 
-#define TEST TEST61
+#define TEST TEST57
 
 int	main(void)
 {
