@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 13:20:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 13:54:45 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/13 17:16:55 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ int	check_precision(t_arg *arg)
 		  !arg->flags.hashtag))
 		set_arg_to_null(arg);
 	length = (arg->result) ? ft_ustrlen(arg->result) : 0;
-	if (ft_strchr("diouxX", arg->type) && (length < (size_t)arg->precision))
+	if (ft_strchr("diouxXb", arg->type) && (length < (size_t)arg->precision))
 		if (!(add_zeros(arg, (size_t)arg->precision - length)))
 			return (0);
 	if (arg->type == 's' && length > (size_t)arg->precision)
 		remove_chars(arg, (size_t)arg->precision);
-	else if (!ft_strchr("diouxXs", arg->type))
+	else if (!ft_strchr("diouxXsb", arg->type))
 		return (0);
 	else if (arg->type == 'n' && arg->precision != -1)
 		return (0);

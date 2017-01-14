@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:23:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 14:34:18 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/14 14:26:02 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 # define UI unsigned int
 # define UC unsigned char
 # define LL long long
+
+# define BLACK "\033[22;30m"
+# define RED "\033[22;31m"
+# define GREEN "\033[22;32m"
+# define BROWN "\033[22;33m"
+# define BLUE "\033[22;34m"
+# define PURPLE "\033[22;35m"
+# define CYAN "\033[22;36m"
+# define RESET "\033[0m"
+
 # include "libft/libft.h"
 # include <wchar.h>
 # include <stdarg.h>

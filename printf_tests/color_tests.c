@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_address.c                                      :+:      :+:    :+:   */
+/*   color_tests.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/30 19:07:14 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 17:18:48 by jwalsh           ###   ########.fr       */
+/*   Created: 2017/01/14 14:24:41 by jwalsh            #+#    #+#             */
+/*   Updated: 2017/01/14 14:58:24 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
+#include <unistd.h>
+#include <stdio.h>
 
-int	get_address(t_data *d, t_arg *arg)
+int	main(void)
 {
-	arg->flags.hashtag = 1;
-	arg->length = l;
-	if (!get_unsigned_int(d, arg))
-		return (0);
-	return (1);
+	char *s = "\e[4mBlinkredtest\033[0m";
+	int	ret;
+	char *a = "\x1B[22;34mThis is a blue text.\e[0m";
+	char *b = "This is a blue text.";
+	//char *a = "printf test\n";
+	
+	//write(1, s, ft_strlen(s));
+	ret = printf("%s\n", s);
+	printf("return value: %i\n", ret);
+	return (0);
 }

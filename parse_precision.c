@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:14:24 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 12:33:28 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/13 17:13:38 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,18 @@ int	parse_precision(t_data *d, t_arg *arg)
 	++d->f;
 	if (!*d->f)
 		return (0);
-	arg->precision = ft_isdigit(*d->f) ? ft_atoi(d->f): 0;
-	while (*d->f && ft_isdigit(*d->f))
+	if (*d->f == '*')
+	{
+		if ((arg->precision = va_arg(d->ap, int)) < 0 )
+			arg->precision = (arg->precision == -2147483648) ? 2147483647 : -1;
 		++d->f;
+	}
+	else
+	{
+		arg->precision = ft_isdigit(*d->f) ? ft_atoi(d->f): 0;
+		while (*d->f && ft_isdigit(*d->f))
+			++d->f;
+	}
 	//printf("precision: %i\n", arg->precision);
 	return (1);
 }

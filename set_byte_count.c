@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 16:00:08 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 16:06:45 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/13 16:46:42 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	set_byte_count(t_data *d, t_arg *arg)
 {
 	d->byte_count = (d->tmp ? ft_ustrlen(d->tmp) : 0) +
 		(d->s ? ft_strlen((char *)d->s) : 0);
-	if (arg->length == hh)
+	if (arg->length == hh) 
 		*va_arg(d->ap, signed char *) = (signed char)d->byte_count;
 	if (arg->length == h)
 		*va_arg(d->ap, short *) = (short)d->byte_count;

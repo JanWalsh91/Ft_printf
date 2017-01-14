@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 15:53:20 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/14 15:06:18 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,18 @@
 #define TEST66 "%.4S", L"我是一只猫。"
 #define TEST67 "%10S", L"我"
 #define TEST68 "{%05.c}", 'o'
-#define TEST69 "%.0%"
-#define TEST70
+#define TEST69 "%*3*3d", 10, 1, 1
+#define TEST70 "%*i", 10, 3
+#define TEST71 "\e[38;5;82mHello"
+#define TEST72 "%.*1*2*3", 4, 5, 6
+#define TEST73
+#define TEST74
+#define TEST75
+#define TEST76
+#define TEST77
+#define TEST78
+#define TEST79
+
 
 #define TEST TEST69
 

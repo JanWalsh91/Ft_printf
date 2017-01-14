@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 18:20:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 13:07:14 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/13 17:30:35 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		get_unsigned_int(t_data *d, t_arg *arg)
 	else
 		return (0);
 	//printf("result: %lu", tmp);
+	arg->type == 'b' ? base = 2 : 0;
 	arg->type == 'u' ? base = 10 : 0;
 	(ft_strchr("xXp", arg->type)) ? base = 16 : 0;
 	arg->type == 'o' ? base = 8 : 0;
