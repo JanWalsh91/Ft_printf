@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:15:36 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:34:50 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 15:02:33 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 static int	revert_null_chars(t_data *d);
 static int	write_result(t_data *d, int i);
 
-int	ft_printf(const char * restrict format, ...)
+int			ft_printf(const char *restrict format, ...)
 {
-	t_data		d;
+	t_data	d;
 
 	va_start(d.ap, format);
 	set_data(&d, (char *)format);

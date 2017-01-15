@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:15:39 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:30:46 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 15:08:39 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int	parse_type(t_data *d, t_arg *arg)
 		arg->length == none ? arg->length = l : 0;
 		arg->length == l ? arg->length = ll : 0;
 		arg->length == ll ? arg->length = ll : 0;
-		ft_strchr("CS",*d->f) ? arg->length = l : 0;
+		ft_strchr("CS", *d->f) ? arg->length = l : 0;
 		arg->type = (ft_tolower(*d->f));
 	}
-	else 
+	else
 	{
 		arg->result = ft_ustrnew(2);
 		arg->result[0] = *d->f;
@@ -38,7 +38,6 @@ int	parse_type(t_data *d, t_arg *arg)
 	}
 	if ((ft_strchr("diouxXb", arg->type) && arg->precision >= 0))
 		arg->flags.zero = 0;
-	//printf("parse type: %i, result: %s\n", arg->type, arg->result);
 	++d->f;
 	return (1);
 }

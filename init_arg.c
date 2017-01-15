@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:27:10 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:33:27 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 15:01:42 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 ** Note: precision set to -1 translates to precision being ignored.
 */
 
-static void		set_default_flags(t_flags *flags);
+static void	set_default_flags(t_flags *flags);
 
-int	init_arg(t_arg *arg)
+int			init_arg(t_arg *arg)
 {
 	arg->result_len = 0;
 	set_default_flags(&arg->flags);
@@ -32,7 +32,7 @@ int	init_arg(t_arg *arg)
 	return (1);
 }
 
-static void		set_default_flags(t_flags *flags)
+static void	set_default_flags(t_flags *flags)
 {
 	flags->hashtag = 0;
 	flags->zero = 0;

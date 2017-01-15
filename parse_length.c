@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:14:56 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 16:40:14 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:51:45 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	parse_length(t_data *d, t_arg *arg)
 	++d->f;
 	if (!*d->f)
 		return (0);
-	(*(d->f - 1) == 'h') && (*d->f == 'h')? arg->length = 1 : 0;
-	(*(d->f - 1) == 'l') && (*d->f == 'l')? arg->length = 4 : 0;
+	(*(d->f - 1) == 'h') && (*d->f == 'h') ? arg->length = 1 : 0;
+	(*(d->f - 1) == 'l') && (*d->f == 'l') ? arg->length = 4 : 0;
 	if (arg->length == 1 || arg->length == 4)
 		++d->f;
 	return (1);

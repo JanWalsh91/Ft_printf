@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 16:35:30 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:26:27 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:41:59 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	get_user_input(t_data *d, char **input);
 static int	get_code_values(char *c);
 
-int	get_color(t_data *d, t_arg *arg)
+int			get_color(t_data *d, t_arg *arg)
 {
 	char	*code;
 

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:44:59 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 17:20:35 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:38:30 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ int			check_flags(t_arg *arg)
 	UC	*prefix;
 	UC	*padding;
 
-	//printf("check_flags. result: %s\n", arg->result);
-	//if (!arg->type)
-	//	return (1);
 	if (arg->width && arg->type == 'n')
 		return (0);
 	arg->flags.single_quote ? add_commas(arg) : 0;
@@ -35,7 +32,6 @@ int			check_flags(t_arg *arg)
 		arg->result = ft_ustrsjoinfree(3, prefix, padding, arg->result);
 	else if (!arg->flags.zero)
 		arg->result = ft_ustrsjoinfree(3, padding, prefix, arg->result);
-	//printf("result %s\n", arg->result);
 	return (1);
 }
 
@@ -44,7 +40,8 @@ static int	get_prefix(t_arg *arg, UC **prefix)
 	*prefix = NULL;
 	if (arg->type && arg->flags.hashtag)
 	{
-		(arg->type == 'o' && ft_strcmp((char *)arg->result, "0")) ? *prefix = ft_ustrdup((UC *)"0") : 0;
+		(arg->type == 'o' && ft_strcmp((char *)arg->result, "0")) ?
+			*prefix = ft_ustrdup((UC *)"0") : 0;
 		(arg->type == 'x') ? *prefix = ft_ustrdup((UC *)"0x") : 0;
 		(arg->type == 'X') ? *prefix = ft_ustrdup((UC *)"0X") : 0;
 		(arg->type == 'b') ? *prefix = ft_ustrdup((UC *)"0b") : 0;
@@ -55,7 +52,6 @@ static int	get_prefix(t_arg *arg, UC **prefix)
 		arg->flags.plus && !arg->neg_int ? *prefix = ft_ustrdup((UC *)"+") : 0;
 		arg->flags.space && !arg->neg_int ? *prefix = ft_ustrdup((UC *)" ") : 0;
 	}
-	//printf("got prefix: %s\n", *prefix);
 	return (1);
 }
 
@@ -65,14 +61,12 @@ static int	get_padding(t_arg *arg, UC **padding, size_t prefix_len)
 
 	arg->result_len = (arg->result) ? ft_ustrlen(arg->result) : 0;
 	*padding = NULL;
-	length = arg->width - arg->result_len - prefix_len; //- arg->null_char;
-	//!arg->type ? --length : 0;
+	length = arg->width - arg->result_len - prefix_len;
 	if (length > 0)
 	{
 		*padding = ft_ustrnew(length);
 		*padding = ft_memset(*padding, arg->flags.zero ? '0' : ' ', length);
 	}
-	//printf("got padding: %s\n", *padding);
 	return (1);
 }
 

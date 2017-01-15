@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 15:33:07 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:24:27 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 15:06:10 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ int	main(void)
 	s[5] = 0;
 	y = 1123509;
 	i = 10;
-	//printf("USHRTMAX: %O\n", USHRT_MAX);
 	//printf(":(printf)    return value:%i\n", printf(TEST));
 	printf(":(ft_printf) return value:%i\n", ft_printf(TEST));
 	//printf(":(printf)    return value:%i", printf(TEST));

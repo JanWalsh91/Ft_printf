@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 16:27:01 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/10 15:46:17 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:54:54 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static int	remove_sign(t_arg *arg);
 
-int		get_int(t_data *d, t_arg *arg)
+int			get_int(t_data *d, t_arg *arg)
 {
 	if (arg->length == hh)
 		arg->result = (UC *)ft_itoa_base((char)va_arg(d->ap, int), 10);
@@ -46,7 +46,6 @@ static int	remove_sign(t_arg *arg)
 	tmp = NULL;
 	tmp = arg->result;
 	arg->result = ft_ustrdup(arg->result + 1);
-	//tmp ? free(tmp) : 0;
 	arg->neg_int = 1;
 	return (1);
 }

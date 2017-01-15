@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 18:52:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 17:01:07 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 15:04:53 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int		get_string(t_data *d, t_arg *arg)
 {
 	wchar_t	*tmp;
 
-	//printf("get_string\n");
 	if (arg->length == none)
 	{
 		if (!(arg->result = (UC *)ft_ustrdup((UC *)va_arg(d->ap, char *))))
@@ -32,7 +31,8 @@ int		get_string(t_data *d, t_arg *arg)
 		if (!tmp)
 			arg->result = (UC *)ft_strdup("(null)");
 		while (tmp && *tmp)
-			arg->result = ft_ustrjoinfree(arg->result, ft_wctostr(*(tmp++)), 'l');
+			arg->result = ft_ustrjoinfree(arg->result,
+					ft_wctostr(*(tmp++)), 'l');
 	}
 	return ((arg->length == none || arg->length == l) ? 1 : 0);
 }

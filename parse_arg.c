@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:21:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 17:29:00 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:50:08 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@
 
 static int	merge(t_data *d, t_arg *arg);
 
-int		parse_arg(t_data *d)
+int			parse_arg(t_data *d)
 {
-	//printf("i\n");
-	//printf("---parse_arg: at char: %c/%i---\n", *d->f, *d->f);
 	t_arg	arg;
 
 	arg.result = NULL;
@@ -43,9 +41,6 @@ int		parse_arg(t_data *d)
 
 static int	merge(t_data *d, t_arg *arg)
 {
-	//printf("pre merge strings: \nd->s: %s\ntmp: %s\narg->result: %s\n", d->s,
-	//		d->tmp, arg->result);
 	d->s = ft_ustrsjoin(3, d->s, d->tmp, arg->result);
-	//printf("post merge check: \n%s\n", d->s);
 	return (1);
 }
