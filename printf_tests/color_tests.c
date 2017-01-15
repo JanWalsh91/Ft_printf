@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 14:24:41 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/14 14:58:24 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/14 16:41:57 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(void)
 {
-	char *s = "\e[4mBlinkredtest\033[0m";
+	char *s = "\e[27mtest\033[0m";
 	int	ret;
 	char *a = "\x1B[22;34mThis is a blue text.\e[0m";
 	char *b = "This is a blue text.";

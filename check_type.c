@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 15:59:58 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 17:18:34 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:35:10 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	check_type(t_data *d, t_arg *arg)
 {
-	//printf("check type: result:  %s\n", arg->result);
 	if (arg->type == 'd' || arg->type == 'i')
 		get_int(d, arg);
 	else if (arg->type && ft_strchr("bouxX", arg->type))
@@ -29,10 +28,7 @@ int	check_type(t_data *d, t_arg *arg)
 		return (0);
 	else if (arg->type == '%' && !get_percent(arg))
 		return (0);
-	//!arg->type ? arg->result = (UC *)ft_strdup("\0") : 0;
-	//	printf("check\n");
-	//	arg->result = (UC *)ft_strdup("\0");
-	
-	//printf("check_type: result: %s\n", arg->result);
+	else if (arg->type == '{' && !get_color(d, arg))
+		return (0);
 	return (1);
 }

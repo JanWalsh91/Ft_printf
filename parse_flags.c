@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:12:56 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 17:16:20 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:32:13 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	parse_flags(t_data *d, t_arg *arg)
 	{
 		*d->f == '#' ? arg->flags.hashtag = 1 : 0;
 		*d->f == '\'' ? arg->flags.single_quote = 1 : 0;
-		*d->f == 'I' ? arg->flags.i = 1 : 0;
+		//*d->f == 'I' ? arg->flags.i = 1 : 0;
 		*d->f == '0' && arg->flags.minus == 0 ? arg->flags.zero = 1 : 0;
 		*d->f == '-' ? arg->flags.minus = 1 : 0;
 		*d->f == '-' ? arg->flags.zero = 0 : 0;

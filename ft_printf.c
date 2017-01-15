@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:15:36 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 14:40:03 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:34:50 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_printf(const char * restrict format, ...)
 	while (d.f && *d.f)
 		if (!parse_until_arg(&d) || !parse_arg(&d))
 			return (write_result(&d, 0));
-	//printf("check1\n");
 	return (write_result(&d, 1));
 }
 
@@ -58,7 +57,7 @@ static int	revert_null_chars(t_data *d)
 ** byte_count if i is not null, or -1 if i is null (error).
 */
 
-static int write_result(t_data *d, int i)
+static int	write_result(t_data *d, int i)
 {
 	d->s ? d->byte_count = ft_ustrlen(d->s) : 0;
 	d->null_char ? revert_null_chars(d) : 0;

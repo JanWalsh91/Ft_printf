@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:23:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/14 14:26:02 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:34:06 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@
 # define UC unsigned char
 # define LL long long
 
-# define BLACK "\033[22;30m"
-# define RED "\033[22;31m"
-# define GREEN "\033[22;32m"
-# define BROWN "\033[22;33m"
-# define BLUE "\033[22;34m"
-# define PURPLE "\033[22;35m"
-# define CYAN "\033[22;36m"
-# define RESET "\033[0m"
+# define RED "\e[38;5;160m"
+# define GREEN "\e[32m"
+# define BLUE "\e[38;5;20m"
+# define MAGENTA "\e[35m"
+# define CYAN "\e[38;5;51m"
+# define YELLOW "\e[38;5;226m"
+# define PINK "\e[38;5;13m"
+# define ORANGE "\e[38;5;202m"
+# define BLACK "\e[38;5;0m"
 
 # include "libft/libft.h"
 # include <wchar.h>
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-//# include <stdio.h> //////////////
 
 /*
-** %[parameter][flags][width][.precision][length]type
+** usage: %[flags][width][.precision][length]type
 */
 
 typedef enum	e_length
@@ -50,14 +50,12 @@ typedef struct	s_flags
 	int				plus;
 	int				space;
 	int				single_quote;
-	int				i;
 }				t_flags;
 
 typedef struct	s_arg
 {
 	unsigned char	*result;
 	int				result_len;
-	int				parameter;
 	t_flags			flags;
 	int				width;
 	int				precision;
@@ -69,12 +67,11 @@ typedef struct	s_arg
 
 typedef	struct	s_data
 {
-	char			*f; //format string
+	char			*f;
 	va_list			ap;
-	unsigned char	*tmp; //tmp string for non arg conversion parts of format
-	unsigned char	*s; //final string
-	int				byte_count; //length of final string
-	int				indicate_param; //are parameter indicators used?
+	unsigned char	*tmp;
+	unsigned char	*s;
+	int				byte_count;
 	int				null_char;
 
 }				t_data;
@@ -86,7 +83,6 @@ int				parse_until_arg(t_data *d);
 int				parse_arg(t_data *d);
 int				init_arg(t_arg *arg);
 
-int				parse_parameter(t_data *d, t_arg *arg);
 int				parse_flags(t_data *d, t_arg *arg);
 int				parse_width(t_data *d, t_arg *arg);
 int				parse_precision(t_data *d, t_arg *arg);
@@ -99,6 +95,7 @@ int				get_int(t_data *d, t_arg *arg);
 int				get_unsigned_int(t_data *d, t_arg *arg);
 int				get_address(t_data *d, t_arg *arg);
 int				get_percent(t_arg *arg);
+int				get_color(t_data *d, t_arg *arg);
 int				set_byte_count(t_data *data, t_arg *arg);
 
 int				check_type(t_data *d, t_arg *arg);

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:04:30 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/12 18:48:54 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:17:13 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 void	set_data(t_data *d, char *format)
 {
-	d->indicate_param = 0;
 	d->f = format;
 	d->s = NULL;
 	d->byte_count = 0;

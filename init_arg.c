@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:27:10 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 12:29:59 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 14:33:27 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /*
 ** Sets default values for the arg structure.
+** Note: precision set to -1 translates to precision being ignored.
 */
 
 static void		set_default_flags(t_flags *flags);
@@ -39,17 +40,4 @@ static void		set_default_flags(t_flags *flags)
 	flags->plus = 0;
 	flags->space = 0;
 	flags->single_quote = 0;
-	flags->i = 0;
 }
-
-/*
-** Deprecated
-*/
-/*
-static int		init_type(char **type)
-{
-	if (!(*type = (char *)malloc(256)))
-		return (ft_error("Mem allcoation fail"));
-	return (1);
-}
-*/
