@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 13:20:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 15:04:32 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 19:11:13 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	remove_chars(t_arg *arg, size_t size);
 static int	set_arg_to_null(t_arg *arg);
 
 /*
+** Checks the precision given to the argument and adds or removes characters.
 ** If precision is -1, it is ignored.
 */
 
@@ -48,6 +49,10 @@ int			check_precision(t_arg *arg)
 	return (1);
 }
 
+/*
+** Adds zeros and adds them to the front of the arg->result string.
+*/
+
 static int	add_zeros(t_arg *arg, size_t size)
 {
 	unsigned char	*zeros;
@@ -58,6 +63,10 @@ static int	add_zeros(t_arg *arg, size_t size)
 	arg->result = ft_ustrjoinfree(zeros, arg->result, 'b');
 	return (1);
 }
+
+/*
+** Removes characters.
+*/
 
 static int	remove_chars(t_arg *arg, size_t size)
 {
@@ -70,6 +79,10 @@ static int	remove_chars(t_arg *arg, size_t size)
 	arg->result = newstr;
 	return (1);
 }
+
+/*
+** Sets the arg->result string to NULL.
+*/
 
 static int	set_arg_to_null(t_arg *arg)
 {

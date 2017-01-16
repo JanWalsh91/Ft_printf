@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:44:59 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:38:30 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 19:09:36 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 static int	get_prefix(t_arg *arg, UC **prefix);
 static int	get_padding(t_arg *arg, UC **padding, size_t prefix_len);
 static int	add_commas(t_arg *arg);
+
+/*
+** Checks for flags given to this argument, and applies the changes to
+** the arg->result string.
+*/
 
 int			check_flags(t_arg *arg)
 {
@@ -34,6 +39,13 @@ int			check_flags(t_arg *arg)
 		arg->result = ft_ustrsjoinfree(3, padding, prefix, arg->result);
 	return (1);
 }
+
+/*
+** get_prefix combines alternate form (flag #) handling for unsigned
+** conversions and sign handling (flags -, +, and 'space') for signed
+** conversions.
+** Modifies the prefix string.
+*/
 
 static int	get_prefix(t_arg *arg, UC **prefix)
 {
@@ -55,6 +67,11 @@ static int	get_prefix(t_arg *arg, UC **prefix)
 	return (1);
 }
 
+/*
+** Modifies the padding string with the padding if neccessary, handling
+** field width and flag 0.
+*/
+
 static int	get_padding(t_arg *arg, UC **padding, size_t prefix_len)
 {
 	int	length;
@@ -69,6 +86,11 @@ static int	get_padding(t_arg *arg, UC **padding, size_t prefix_len)
 	}
 	return (1);
 }
+
+/*
+** Groups and separates decimal conversion (d, i, and u) result digits by
+** thousands.
+*/
 
 static int	add_commas(t_arg *arg)
 {

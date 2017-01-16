@@ -6,13 +6,14 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:12:56 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:50:53 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 17:57:37 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
+** Parses for flags in the format string.
 ** If at least one flags is found, sets them in arg.
 */
 

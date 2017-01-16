@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:14:24 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 15:05:44 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 18:03:23 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 ** Precision is by default set to -1.
 ** If a period is found, the precision is set to the following number.
 ** If there is no number, the precision is set to 0.
+** Handles wildcards.
+** Returns 0 if precision is followed by a '\0'.
 */
 
 int	parse_precision(t_data *d, t_arg *arg)

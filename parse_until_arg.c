@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:42:24 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:52:07 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 18:02:25 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Parses the format string until a percentage character is found or the end of
 ** the string is reached.
-** Copies the string in a temporary string which is joined to the result int
+** Copies the string in a temporary string which is joined to the result in
 ** parse_arg.
 */
 

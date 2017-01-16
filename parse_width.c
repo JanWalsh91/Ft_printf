@@ -6,14 +6,16 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:13:32 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:52:58 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 18:03:11 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
+** Parse for field width in the format string.
 ** If a field width is found, sets it in arg.
+** Handles wildcards.
 */
 
 static int	parse_wildcard(t_data *d, t_arg *arg);

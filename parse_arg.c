@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 12:21:50 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:50:08 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 18:39:12 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int			parse_arg(t_data *d)
 
 static int	merge(t_data *d, t_arg *arg)
 {
-	d->s = ft_ustrsjoin(3, d->s, d->tmp, arg->result);
+	d->s = ft_ustrsjoinfree(3, d->s, d->tmp, arg->result);
 	return (1);
 }

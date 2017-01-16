@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/29 12:23:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:34:06 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/16 13:14:07 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 
 typedef enum	e_length
 {
-	none, hh, h, l, ll, j, z, L
+	none, hh, h, l, ll, j, z
 }				t_length;
 
 typedef struct	s_flags
@@ -78,7 +78,7 @@ typedef	struct	s_data
 
 int				ft_printf(const char *format, ...);
 
-void			set_data(t_data *d, char *format);
+void			init_data(t_data *d, char *format);
 int				parse_until_arg(t_data *d);
 int				parse_arg(t_data *d);
 int				init_arg(t_arg *arg);
@@ -89,17 +89,17 @@ int				parse_precision(t_data *d, t_arg *arg);
 int				parse_length(t_data *d, t_arg *arg);
 int				parse_type(t_data *d, t_arg *arg);
 
+int				check_type(t_data *d, t_arg *arg);
+int				check_precision(t_arg *arg);
+int				check_flags(t_arg *arg);
+
 int				get_char(t_data *d, t_arg *arg);
 int				get_string(t_data *d, t_arg *arg);
 int				get_int(t_data *d, t_arg *arg);
 int				get_unsigned_int(t_data *d, t_arg *arg);
 int				get_address(t_data *d, t_arg *arg);
 int				get_percent(t_arg *arg);
-int				get_color(t_data *d, t_arg *arg);
+int				get_format(t_data *d, t_arg *arg);
 int				set_byte_count(t_data *data, t_arg *arg);
-
-int				check_type(t_data *d, t_arg *arg);
-int				check_precision(t_arg *arg);
-int				check_flags(t_arg *arg);
 
 #endif

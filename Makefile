@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2017/01/15 14:16:32 by jwalsh           ###   ########.fr        #
+#    Updated: 2017/01/16 13:14:46 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,13 @@ SRC = ft_printf.c \
 	  check_type.c \
 	  get_address.c \
 	  get_char.c \
-	  get_color.c \
+	  get_format.c \
 	  get_int.c \
 	  get_percent.c \
 	  get_string.c \
 	  get_unsigned_int.c \
 	  init_arg.c \
+	  init_data.c \
 	  parse_arg.c \
 	  parse_flags.c \
 	  parse_length.c \
@@ -29,7 +30,6 @@ SRC = ft_printf.c \
 	  parse_type.c \
 	  parse_until_arg.c \
 	  parse_width.c \
-	  set.c \
 	  set_byte_count.c
 
 LIB_SRC = ft_atoi.c \

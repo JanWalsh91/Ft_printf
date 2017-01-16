@@ -6,14 +6,18 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:15:39 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 15:08:39 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 18:01:36 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
+** Parses for a conversion type in the format string.
 ** If a type is found, sets it in arg.
+** Updates the lenght modifier for uppercase conversion types.
+** Disables the '0' flag if a precision is found with d, i, o, u, x, X and b
+** types.
 */
 
 int	parse_type(t_data *d, t_arg *arg)

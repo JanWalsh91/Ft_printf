@@ -6,11 +6,16 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 19:07:14 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/13 17:18:48 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 17:56:20 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** Gets the address for p conversions.
+** p conversion results are always displayed in alternate form (# flag).
+*/
 
 int	get_address(t_data *d, t_arg *arg)
 {

@@ -6,14 +6,14 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 16:27:01 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:54:54 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/16 13:11:33 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** Gets the number for i and d
+** Gets the signed integer for i and d conversions.
 */
 
 static int	remove_sign(t_arg *arg);
@@ -31,7 +31,8 @@ int			get_int(t_data *d, t_arg *arg)
 	else if (arg->length == ll)
 		arg->result = (UC *)ft_itoa_base((LL)va_arg(d->ap, LL), 10);
 	else if (arg->length == j)
-		arg->result = (UC *)ft_itoa_base((intmax_t)va_arg(d->ap, intmax_t), 10);
+		arg->result =
+			(UC *)ft_itoa_base((intmax_t)va_arg(d->ap, intmax_t), 10);
 	else
 		return (0);
 	if (arg->result && *arg->result == '-')
@@ -39,13 +40,18 @@ int			get_int(t_data *d, t_arg *arg)
 	return (1);
 }
 
+/*
+** Removes the minus sign (to be added later).
+*/
+
 static int	remove_sign(t_arg *arg)
 {
-	UC	*tmp;
+	unsigned char	*tmp;
 
 	tmp = NULL;
 	tmp = arg->result;
 	arg->result = ft_ustrdup(arg->result + 1);
+	free(tmp);
 	arg->neg_int = 1;
 	return (1);
 }

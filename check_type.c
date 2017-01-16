@@ -6,11 +6,16 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 15:59:58 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/15 14:35:10 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/01/15 19:08:34 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** Based on the type provided, calls on the appropiate function to get the
+** conversion.
+*/
 
 int	check_type(t_data *d, t_arg *arg)
 {
@@ -28,7 +33,7 @@ int	check_type(t_data *d, t_arg *arg)
 		return (0);
 	else if (arg->type == '%' && !get_percent(arg))
 		return (0);
-	else if (arg->type == '{' && !get_color(d, arg))
+	else if (arg->type == '{' && !get_format(d, arg))
 		return (0);
 	return (1);
 }
