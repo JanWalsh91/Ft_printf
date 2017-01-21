@@ -1,6 +1,6 @@
 # Ft_printf
 
-Time to recode the libc's printf function!
+Ft_printf - time to recode the libc's printf function!
 
 Concepts convered: 
 - variadic functions with wchar_t
